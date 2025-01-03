@@ -1,13 +1,3 @@
-document.getElementById('phone').addEventListener('input', function (e) {
-    let value = e.target.value.replace(/[^+\d]/g, '');
-    if (value.startsWith('+')) {
-        value = value.replace(/\D/g, '').replace(/^(.{3})(.{3})(.{5})$/, '+$1 $2 $3');
-    } else {
-        value = '+' + value.replace(/\D/g, '').replace(/^(.{3})(.{3})(.{5})$/, '$1 $2 $3');
-    }
-    e.target.value = value;
-});
-
 function validateForm() {
     let isValid = true;
     document.getElementById('successMessage').innerText = '';
@@ -48,8 +38,9 @@ function validateForm() {
     // Telefono numeris
     const phone = document.getElementById('phone').value;
     const phoneError = document.getElementById('phoneError');
-    if (!/^\+\d{3} \d{3} \d{5}$/.test(phone)) {
-        phoneError.innerText = 'Telefono numeris turi atitikti formatą +xxx xxx xxxxx';
+    // Tikrina, ar numeris atitinka formatus: +xxx xxx xxxxx arba +xxxxxxxxxxx
+    if (!/^\+(\d{3} \d{3} \d{5}|\d{11})$/.test(phone)) {
+        phoneError.innerText = 'Telefono numerio formatas neteisingas';
         isValid = false;
     } else {
         phoneError.innerText = '';
@@ -76,5 +67,6 @@ function validateForm() {
 
     if (isValid) {
         document.getElementById('successMessage').innerText = 'Registracija sėkminga!';
+        document.getElementById('registrationForm').reset();
     }
 }
