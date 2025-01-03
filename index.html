@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Registracijos forma</h2>
+        <form id="registrationForm">
+            <div class="form-group">
+                <label for="name">Vardas:</label>
+                <input type="text" id="name" name="name" required>
+                <div class="error" id="nameError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">El. paštas:</label>
+                <input type="email" id="email" name="email" required>
+                <div class="error" id="emailError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="birthdate">Gimimo data:</label>
+                <input type="date" id="birthdate" name="birthdate" required>
+                <div class="error" id="birthdateError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Telefono numeris (+xxx xxx xxxxx):</label>
+                <input type="text" id="phone" name="phone" required>
+                <div class="error" id="phoneError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Slaptažodis:</label>
+                <input type="password" id="password" name="password" required>
+                <div class="error" id="passwordError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">Pakartokite slaptažodį:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+                <div class="error" id="confirmPasswordError"></div>
+            </div>
+
+            <button type="button" onclick="validateForm()">Registruotis</button>
+            <div class="success" id="successMessage"></div>
+        </form>
+    </div>
+</body>
+
+</html>
