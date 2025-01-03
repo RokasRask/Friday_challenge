@@ -38,7 +38,6 @@ function validateForm() {
     // Telefono numeris
     const phone = document.getElementById('phone').value;
     const phoneError = document.getElementById('phoneError');
-    // Tikrina, ar numeris atitinka formatus: +xxx xxx xxxxx arba +xxxxxxxxxxx
     if (!/^\+(\d{3} \d{3} \d{5}|\d{11})$/.test(phone)) {
         phoneError.innerText = 'Telefono numerio formatas neteisingas';
         isValid = false;
