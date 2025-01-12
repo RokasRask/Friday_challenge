@@ -50,7 +50,7 @@ function validateForm() {
     const confirmPassword = document.getElementById('confirmPassword').value;
     const passwordError = document.getElementById('passwordError');
     const confirmPasswordError = document.getElementById('confirmPasswordError');
-    if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(password)) {
+    if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$"'!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(password)) {
         passwordError.innerText = 'Slaptažodis turi būti bent 8 simbolių, turėti didžiąją raidę, skaičių ir specialų simbolį';
         isValid = false;
     } else {
