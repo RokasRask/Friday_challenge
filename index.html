@@ -11,85 +11,119 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="form-header">
-            <h2>Registration</h2>
-            <p>Please fill out the form below to create your account</p>
+    <div class="registration-container">
+        <div class="registration-header">
+            <h2 class="registration-title">Registration</h2>
+            <p class="registration-subtitle">Please fill out the form below to create your account</p>
         </div>
-        <form id="registrationForm">
-            <div class="form-group">
-                <label for="name">Full Name:</label>
-                <div class="input-with-icon">
-                    <i class="fas fa-user"></i>
-                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        <form id="registrationForm" class="registration-form">
+            <!-- Name Field -->
+            <div class="form-field name-field">
+                <label for="name" class="field-label">Full Name:</label>
+                <div class="input-container">
+                    <span class="input-icon name-icon">
+                        <i class="fas fa-user"></i>
+                    </span>
+                    <input type="text" id="name" name="name" class="input-text" placeholder="Enter your name" required>
                 </div>
-                <div class="error" id="nameError"></div>
+                <div class="error-message" id="nameError"></div>
             </div>
 
-            <div class="form-group">
-                <label for="email">Email Address:</label>
-                <div class="input-with-icon">
-                    <i class="fas fa-envelope"></i>
-                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            <!-- Email Field -->
+            <div class="form-field email-field">
+                <label for="email" class="field-label">Email Address:</label>
+                <div class="input-container">
+                    <span class="input-icon email-icon">
+                        <i class="fas fa-envelope"></i>
+                    </span>
+                    <input type="email" id="email" name="email" class="input-text" placeholder="Enter your email" required>
                 </div>
-                <div class="error" id="emailError"></div>
+                <div class="error-message" id="emailError"></div>
             </div>
 
-            <div class="form-group">
-                <label for="birthdate">Date of Birth:</label>
-                <div class="input-with-icon">
-                    <i class="fas fa-calendar-alt"></i>
-                    <input type="date" id="birthdate" name="birthdate" required>
+            <!-- Birthdate Field -->
+            <div class="form-field birthdate-field">
+                <label for="birthdate" class="field-label">Date of Birth:</label>
+                <div class="input-container">
+                    <span class="input-icon date-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </span>
+                    <input type="date" id="birthdate" name="birthdate" class="input-date" required>
                 </div>
-                <div class="error" id="birthdateError"></div>
+                <div class="error-message" id="birthdateError"></div>
             </div>
 
-            <div class="form-group">
-                <label for="phone">Phone Number (+xxx xxx xxxxx):</label>
-                <div class="input-with-icon">
-                    <i class="fas fa-phone"></i>
-                    <input type="text" id="phone" name="phone" placeholder="+370 612 34567" required>
+            <!-- Phone Field -->
+            <div class="form-field phone-field">
+                <label for="phone" class="field-label">Phone Number (+xxx xxx xxxxx):</label>
+                <div class="input-container">
+                    <span class="input-icon phone-icon">
+                        <i class="fas fa-phone"></i>
+                    </span>
+                    <input type="text" id="phone" name="phone" class="input-text" placeholder="+370 612 34567" required>
                 </div>
-                <div class="error" id="phoneError"></div>
+                <div class="error-message" id="phoneError"></div>
             </div>
 
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <div class="input-with-icon">
-                    <i class="fas fa-lock"></i>
-                    <input type="password" id="password" name="password" placeholder="Create a strong password" required>
-                    <i class="fas fa-eye toggle-password" id="togglePassword"></i>
+            <!-- Password Field -->
+            <div class="form-field password-field">
+                <label for="password" class="field-label">Password:</label>
+                <div class="input-container">
+                    <span class="input-icon password-icon">
+                        <i class="fas fa-lock"></i>
+                    </span>
+                    <input type="password" id="password" name="password" class="input-text" placeholder="Create a strong password" required>
+                    <span class="password-toggle" id="togglePassword">
+                        <i class="fas fa-eye"></i>
+                    </span>
                 </div>
-                <div class="error" id="passwordError"></div>
-                <div class="password-strength">
+                <div class="error-message" id="passwordError"></div>
+                <div class="password-strength-container">
                     <div class="strength-meter">
-                        <div id="strength-bar"></div>
+                        <div id="strength-bar" class="strength-bar"></div>
                     </div>
-                    <span id="strength-text">Password strength</span>
+                    <span id="strength-text" class="strength-text">Password strength</span>
                 </div>
             </div>
 
-            <div class="form-group">
-                <label for="confirmPassword">Confirm Password:</label>
-                <div class="input-with-icon">
-                    <i class="fas fa-lock"></i>
-                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
-                    <i class="fas fa-eye toggle-password" id="toggleConfirmPassword"></i>
+            <!-- Confirm Password Field -->
+            <div class="form-field confirm-password-field">
+                <label for="confirmPassword" class="field-label">Confirm Password:</label>
+                <div class="input-container">
+                    <span class="input-icon confirm-password-icon">
+                        <i class="fas fa-lock"></i>
+                    </span>
+                    <input type="password" id="confirmPassword" name="confirmPassword" class="input-text" placeholder="Confirm your password" required>
+                    <span class="password-toggle" id="toggleConfirmPassword">
+                        <i class="fas fa-eye"></i>
+                    </span>
                 </div>
-                <div class="error" id="confirmPasswordError"></div>
+                <div class="error-message" id="confirmPasswordError"></div>
             </div>
 
-            <div class="form-group terms">
-                <input type="checkbox" id="termsCheck" name="termsCheck" required>
-                <label for="termsCheck">I agree to the <a href="#">Terms and Conditions</a></label>
-                <div class="error" id="termsError"></div>
+            <!-- Password Visibility Checkbox -->
+            <div class="form-field show-password-field">
+                <div class="checkbox-container">
+                    <input type="checkbox" id="showPasswordCheck" name="showPasswordCheck" class="checkbox-input">
+                    <label for="showPasswordCheck" class="checkbox-label">Show password</label>
+                </div>
             </div>
 
-            <button type="button" id="submitBtn" onclick="validateForm()">Register Account</button>
-            <div class="success" id="successMessage"></div>
+            <!-- Terms Field -->
+            <div class="form-field terms-field">
+                <div class="checkbox-container">
+                    <input type="checkbox" id="termsCheck" name="termsCheck" class="checkbox-input" required>
+                    <label for="termsCheck" class="checkbox-label">I agree to the <a href="#" class="terms-link">Terms and Conditions</a></label>
+                </div>
+                <div class="error-message" id="termsError"></div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="button" id="submitBtn" class="submit-button" onclick="validateForm()">Register Account</button>
+            <div class="success-message" id="successMessage"></div>
         </form>
-        <div class="login-link">
-            Already have an account? <a href="#">Log in</a>
+        <div class="login-link-container">
+            Already have an account? <a href="#" class="login-link">Log in</a>
         </div>
     </div>
 </body>

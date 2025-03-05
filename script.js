@@ -2,15 +2,36 @@ document.addEventListener('DOMContentLoaded', function() {
     // Setup password toggle functionality
     const togglePassword = document.getElementById('togglePassword');
     const toggleConfirmPassword = document.getElementById('toggleConfirmPassword');
+    const showPasswordCheck = document.getElementById('showPasswordCheck');
     const passwordInput = document.getElementById('password');
     const confirmPasswordInput = document.getElementById('confirmPassword');
 
+    // Toggle button click handlers
     togglePassword.addEventListener('click', function() {
         togglePasswordVisibility(passwordInput, togglePassword);
+        
+        // Update checkbox state to match the password visibility
+        showPasswordCheck.checked = passwordInput.type === 'text';
     });
 
     toggleConfirmPassword.addEventListener('click', function() {
         togglePasswordVisibility(confirmPasswordInput, toggleConfirmPassword);
+        
+        // Update checkbox state to match the password visibility
+        showPasswordCheck.checked = confirmPasswordInput.type === 'text';
+    });
+
+    // Checkbox handler for showing passwords
+    showPasswordCheck.addEventListener('change', function() {
+        const showPassword = this.checked;
+        
+        // Set both password fields to the same visibility state
+        passwordInput.type = showPassword ? 'text' : 'password';
+        confirmPasswordInput.type = showPassword ? 'text' : 'password';
+        
+        // Update eye icons to match
+        updateToggleIcon(togglePassword, showPassword);
+        updateToggleIcon(toggleConfirmPassword, showPassword);
     });
 
     // Setup password strength meter
@@ -28,13 +49,23 @@ document.addEventListener('DOMContentLoaded', function() {
     birthdateInput.setAttribute('max', maxDate);
 });
 
-function togglePasswordVisibility(inputField, icon) {
-    if (inputField.type === 'password') {
-        inputField.type = 'text';
+function togglePasswordVisibility(inputField, toggleButton) {
+    const isVisible = inputField.type === 'password';
+    
+    // Toggle the password visibility
+    inputField.type = isVisible ? 'text' : 'password';
+    
+    // Update the toggle icon
+    updateToggleIcon(toggleButton, isVisible);
+}
+
+function updateToggleIcon(toggleButton, showPassword) {
+    const icon = toggleButton.querySelector('i');
+    
+    if (showPassword) {
         icon.classList.remove('fa-eye');
         icon.classList.add('fa-eye-slash');
     } else {
-        inputField.type = 'password';
         icon.classList.remove('fa-eye-slash');
         icon.classList.add('fa-eye');
     }
@@ -183,13 +214,13 @@ function showError(elementId, message) {
 
 function resetErrors() {
     // Clear all error messages
-    const errorElements = document.querySelectorAll('.error');
+    const errorElements = document.querySelectorAll('.error-message');
     errorElements.forEach(element => {
         element.textContent = '';
     });
     
     // Reset input highlighting
-    const inputElements = document.querySelectorAll('input');
+    const inputElements = document.querySelectorAll('.input-text, .input-date');
     inputElements.forEach(element => {
         element.style.borderColor = 'var(--border-color)';
     });
