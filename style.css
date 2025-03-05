@@ -81,10 +81,13 @@ form {
     left: 12px;
     color: var(--text-light);
     font-size: 16px;
+    z-index: 1;
+    pointer-events: none;
 }
 
 .input-with-icon input {
     padding-left: 40px;
+    position: relative;
 }
 
 .toggle-password {
